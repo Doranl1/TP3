@@ -1,3 +1,10 @@
+"""
+Exercice: TP3
+Nom: Liam Doran
+Group: 404
+"""
+
+
 import random
 force_adversaire = 0
 numero_adversaire = 1
@@ -10,7 +17,7 @@ jeu = 1
 while jeu == 1:
     force_adversaire = random.randint(1, 5)
     print("Vous tombez face à face avec un adversaire de difficulté : %d"
-          %(force_adversaire))
+          % force_adversaire)
     choix = input("Que voulez-vous faire ? \n"
                   "1- Combattre cet adversaire\n"
                   "2- Contourner cet adversaire et aller ouvrir une autre porte\n"
@@ -22,15 +29,15 @@ while jeu == 1:
               "Force de l’adversaire : %d\n"
               "Niveau de vie de l’usager : %d\n"
               "Combat %d : %d vs %d"
-              %(numero_adversaire, force_adversaire, niveau_vie, numero_combat, nombre_victoires, nombre_defaites))
-        score_dé = random.randint(1, 6)
+              % (numero_adversaire, force_adversaire, niveau_vie, numero_combat, nombre_victoires, nombre_defaites))
+        score_de = random.randint(1, 6)
         print("Lancer du dé : %d"
-              %(score_dé))
-        if score_dé <= force_adversaire:
+              % score_de)
+        if score_de <= force_adversaire:
             niveau_vie -= force_adversaire
             if niveau_vie <= 0:
                 print("La partie est terminée, vous avez vaincu %d monstre(s)."
-                      %(nombre_victoires))
+                      % nombre_victoires)
                 jouer = str(input("voulez-vous rejouer?\n"))
                 if jouer == "oui":
                     print(" ")
@@ -40,23 +47,27 @@ while jeu == 1:
                 nombre_defaites += 1
                 print("défaite\n"
                       "Niveau de vie : %d"
-                      %(niveau_vie))
+                      % niveau_vie)
                 print(nombre_defaites)
-        elif score_dé > force_adversaire:
+        elif score_de > force_adversaire:
             nombre_victoires += 1
             nombre_victoires_consecutives += 1
             niveau_vie += force_adversaire
             print("victoire\n"
                   "Niveau de vie : %d\n"
                   "Nombre de victoires consécutives : %d"
-                  %(niveau_vie, nombre_victoires_consecutives))
+                  % (niveau_vie, nombre_victoires_consecutives))
     elif int(choix) == 2:
         print("vous contournez cet adversaire et ouvre une autre porte")
     elif int(choix) == 3:
-        print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.  Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.\n"
-              "Une défaite a lieu lorsque la valeur du dé lancé par l’usager est inférieure ou égale à la force de l’adversaire.  Dans ce cas, le niveau de vie de l’usager est diminué de la force de l’adversaire.\n"
+        print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.  "
+              "Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.\n"
+              "Une défaite a lieu lorsque la valeur du dé lancé "
+              "par l’usager est inférieure ou égale à la force de l’adversaire.  "
+              "Dans ce cas, le niveau de vie de l’usager est diminué de la force de l’adversaire.\n"
               "La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n"
-              "L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.")
+              "L’usager peut combattre ou éviter chaque adversaire, "
+              "dans le cas de l’évitement, il y a une pénalité de 1 point de vie.")
     elif int(choix) == 4:
         jouer = str(input("voulez-vous quitter?\n"))
         if jouer == "oui":
