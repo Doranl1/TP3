@@ -3,9 +3,8 @@ Exercice: TP3
 Nom: Liam Doran
 Group: 404
 """
-
-
 import random
+# Les variables
 force_adversaire = 0
 numero_adversaire = 1
 niveau_vie = 20
@@ -14,7 +13,7 @@ nombre_victoires = 0
 nombre_defaites = 0
 nombre_victoires_consecutives = 0
 jeu = 1
-while jeu == 1:
+while jeu == 1:  # le début du jeu
     force_adversaire = random.randint(1, 5)
     print("Vous tombez face à face avec un adversaire de difficulté : %d"
           % force_adversaire)
@@ -24,7 +23,7 @@ while jeu == 1:
                   "3- Afficher les règles du jeu\n"
                   "4- Quitter la partie\n")
 
-    if int(choix) == 1:
+    if int(choix) == 1:  # combattre l'adversaire
         print("Adversaire : %d\n"
               "Force de l’adversaire : %d\n"
               "Niveau de vie de l’usager : %d\n"
@@ -33,9 +32,9 @@ while jeu == 1:
         score_de = random.randint(1, 6)
         print("Lancer du dé : %d"
               % score_de)
-        if score_de <= force_adversaire:
+        if score_de <= force_adversaire:  # défaite du jouer
             niveau_vie -= force_adversaire
-            if niveau_vie <= 0:
+            if niveau_vie <= 0:  # la fin du partie
                 print("La partie est terminée, vous avez vaincu %d monstre(s)."
                       % nombre_victoires)
                 jouer = str(input("voulez-vous rejouer?\n"))
@@ -49,7 +48,7 @@ while jeu == 1:
                       "Niveau de vie : %d"
                       % niveau_vie)
                 print(nombre_defaites)
-        elif score_de > force_adversaire:
+        elif score_de > force_adversaire:  # victoire du joueur
             nombre_victoires += 1
             nombre_victoires_consecutives += 1
             niveau_vie += force_adversaire
@@ -57,9 +56,11 @@ while jeu == 1:
                   "Niveau de vie : %d\n"
                   "Nombre de victoires consécutives : %d"
                   % (niveau_vie, nombre_victoires_consecutives))
-    elif int(choix) == 2:
+    elif int(choix) == 2:  # contourner l'adversaire
         print("vous contournez cet adversaire et ouvre une autre porte")
-    elif int(choix) == 3:
+        niveau_vie -= 1
+        print("Niveau de vie : %d" % niveau_vie)
+    elif int(choix) == 3:  # les règles
         print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire.  "
               "Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire.\n"
               "Une défaite a lieu lorsque la valeur du dé lancé "
@@ -68,9 +69,9 @@ while jeu == 1:
               "La partie se termine lorsque les points de vie de l’usager tombent sous 0.\n"
               "L’usager peut combattre ou éviter chaque adversaire, "
               "dans le cas de l’évitement, il y a une pénalité de 1 point de vie.")
-    elif int(choix) == 4:
+    elif int(choix) == 4:  # quitter le jeu
         jouer = str(input("voulez-vous quitter?\n"))
         if jouer == "oui":
             break
         else:
-            print(" ")
+            print("\n")
